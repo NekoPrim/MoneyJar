@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+project planning can be found with [JamBoard](https://jamboard.google.com/d/1wNWlFrDGJwT3-baz2eo0e9u6yiCD5M1ZoTAWsTr0vn8/viewer?f=0).
+
 ## Available Scripts
 
 In the project directory, you can run:
