@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+
 import CreateUserScreen from './Components/Screens/CreateUsers/CreateUserScreen';
 import LoginScreen from './Components/Screens/Login/LoginScreen';
 import WelcomeScreen from './Components/Screens/Welcome/WelcomeScreen';
@@ -14,14 +15,16 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={ <LoginScreen key="login" /> } />
-        {/* {!api.isLoggedIn && <Route path="*" element={<Navigate to={"/login"} />}/>} */}
       <Route path="/createUser" element={ <CreateUserScreen /> } />
+        {/* {!api.isLoggedIn && <Route path="*" element={<Navigate to={"/login"} />}/>} */}
       {/* these routes will need to be protected */}
       <Route path="/welcome" element={ <WelcomeScreen /> } />
       <Route path="/" element={ <CategoriesScreen /> } />
       <Route path="/profile" element={ <ProfileScreen /> } />
       <Route path="/overView" element={ <OverViewScreen /> } />
       <Route path="/settings" element={ <SettingsScreen /> } />
+      <Route path="*" element={<Navigate to={"/"} />} />
+      {/* If none of the other routes matched, we will show a 404. */}
     </Routes>
   );
 }
