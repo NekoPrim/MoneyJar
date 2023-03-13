@@ -24,7 +24,6 @@ function App() {
       <Route path="/overView" element={ <OverViewScreen /> } />
       <Route path="/settings" element={ <SettingsScreen /> } />
       <Route path="*" element={<Navigate to={"/"} />} />
-      {/* If none of the other routes matched, we will show a 404. */}
     </Routes>
   );
 }
