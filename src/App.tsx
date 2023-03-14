@@ -19,10 +19,10 @@ function App() {
         {/* {!api.isLoggedIn && <Route path="*" element={<Navigate to={"/login"} />}/>} */}
       {/* these routes will need to be protected */}
       <Route path="/welcome" element={ <WelcomeScreen /> } />
-      <Route path="/" element={ <CategoriesScreen /> } />
       <Route path="/profile" element={ <ProfileScreen /> } />
       <Route path="/overView" element={ <OverViewScreen /> } />
       <Route path="/settings" element={ <SettingsScreen /> } />
+      <Route path="/" element={ <CategoriesScreen /> } />
       <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
   );
