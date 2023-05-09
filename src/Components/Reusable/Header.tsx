@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
 import Logo from './Logo.png';
-import { Box, MenuItem } from '@mui/material';
+import { Box, MenuItem, Button, Menu } from '@mui/material';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
