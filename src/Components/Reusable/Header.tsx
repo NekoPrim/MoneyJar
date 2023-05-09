@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import Logo from './logo.jpeg';
-import { Box } from '@mui/material';
+import Logo from './Logo.png';
+import { Box, MenuItem } from '@mui/material';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -16,51 +16,61 @@ export default function Header() {
   };
 
   return (
-    <div>
-        <Box display={'row'}>
+    <Box>
       <Button
-        id="demo-positioned-button"
-        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        id="positioned-button"
+        aria-controls={open ? 'positioned-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        {Logo}
+        <img src={Logo} style={{ height: '100px' }}/>
       </Button>
       <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
+        id="positioned-menu"
+        aria-labelledby="positioned-button"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        sx={{
+            display: 'flex',
+            top: 100,
         }}
       >
-        <Box display={'row'}>
-        <Link to="/Profile">
-            <Button onClick={handleClose}>Profile</Button>
+        <Link to="/Profile" style={{ textDecoration: 'none' }}>
+            <MenuItem onClick={handleClose}>
+                Profile
+            </MenuItem>
         </Link>
-        <Link to="/">
-            <Button onClick={handleClose}>Home</Button>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+            <MenuItem onClick={handleClose}>
+                Home
+            </MenuItem>
         </Link>
-        <Link to="/OverView">
-            <Button onClick={handleClose}>OverView</Button>
+        <Link to="/OverView" style={{ textDecoration: 'none' }}>
+            <MenuItem onClick={handleClose}>
+                OverView
+            </MenuItem>
         </Link>
-        <Link to="/Settings">
-            <Button onClick={handleClose}>Settings</Button>
+        <Link to="/Settings" style={{ textDecoration: 'none' }}>
+            <MenuItem onClick={handleClose}>
+                Settings
+            </MenuItem>
         </Link>
-        <Link to="/Login">
-            <Button id='Logout' onClick={handleClose}>Logout</Button>
+        <Link to="/Login" style={{ textDecoration: 'none' }}>
+            <MenuItem id='Logout' onClick={handleClose}>
+                Logout
+            </MenuItem>
         </Link>
-        </Box>
       </Menu>
-      </Box>
-    </div>
+    </Box>
   );
 }
