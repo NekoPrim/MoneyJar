@@ -18,6 +18,16 @@ const styles = {
     loginButton: {
         width: '200px',
     },
+    formFieldBox: {
+        margin: 'auto',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        width: 500 
+    },
+    formField: {
+        marginTop: 4,
+    },
 };
 
 export default styles;
