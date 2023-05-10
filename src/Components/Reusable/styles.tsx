@@ -4,13 +4,19 @@ const styles = {
     green: { color: '#808000' },
     gold: { color: '#FFD700' },
     charcoal: { color: '#5A5A5A' },
-    loginInput: {
-        color: '#808000',
-        margin: 'auto',
+    red: { color: '#8b0000' },
+    white: { color: '#E1D9D1' },
+
+    loginBox: {
+        display: 'flex',
         justifyContent: 'center',
+        marginTop: '20px',
+    },
+    loginInput: {
+        width: '500px',
+    },
+    loginButton: {
         width: '200px',
-        top: 5,
-        bottom: 5,
     },
 };
 

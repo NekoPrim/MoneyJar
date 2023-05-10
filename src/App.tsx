@@ -9,12 +9,14 @@ import ProfileScreen from './Components/Screens/Profile/ProfileScreen';
 import CategoriesScreen from './Components/Screens/Categories/CategoriesScreen';
 import SettingsScreen from './Components/Screens/Settings/SettingsScreen';
 import OverViewScreen from './Components/Screens/OverView/OverViewScreen';
+import ForgotPasswordScreen from './Components/Screens/Login/ForgotPasswordScreen';
 
 function App() {
   // const api = useApi();
   return (
     <Routes>
       <Route path="/Login" element={ <LoginScreen key="login" /> } />
+      <Route path="/ForgotPassword" element={ <ForgotPasswordScreen /> } />
       <Route path="/CreateUser" element={ <CreateUserScreen /> } />
         {/* {!api.isLoggedIn && <Route path="*" element={<Navigate to={"/login"} />}/>} */}
       {/* these routes will need to be protected */}
