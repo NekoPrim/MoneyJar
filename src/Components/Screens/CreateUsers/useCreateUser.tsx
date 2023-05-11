@@ -56,7 +56,6 @@ export default function useCreateUser() {
         email,
         setEmail,
         password,
-        setPassword,
         confirmPassword,
         setConfirmPassword,
         error,

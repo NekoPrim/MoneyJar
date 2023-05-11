@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Input, TextField } from '@mui/material';
+import React from 'react';
+import { Box, Button, FormControl, FormLabel, TextField } from '@mui/material';
 import Logo from '../../Reusable/Logo.png';
 import styles from '../../Reusable/styles';
-// import { useNavigate } from 'react-router-dom';
 import useCreateUser from './useCreateUser';
 
 export default function CreateUserScreen() {
@@ -14,60 +13,14 @@ export default function CreateUserScreen() {
         email,
         setEmail,
         password,
-        setPassword,
         confirmPassword,
         setConfirmPassword,
         error,
         verifyFields,
         capturePassword,
         createAccount,
-    } = useCreateUser
-    // const nav = useNavigate();
-
-    // const [firstName, setFirstName] = useState('');
-    // const [lastName, setLastName] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [confirmPassword, setConfirmPassword] = useState('');
-    // const [count, setCount] = useState(0);
-    // const [error, setError] = useState('');
-
-    // const verifyFields = !firstName || !lastName || !email || !password || !confirmPassword;
-    // const capturePassword = (e: any) => {
-    //     setPassword(e.target.value);
-    //     setCount(e.target.value.length);
-    // }
-
-    // const createAccount = () => {
-    //     setError('');
-    //     const user = {
-    //         firstName,
-    //         lastName,
-    //         email,
-    //         password,
-    //     };
-
-    //     const checkEmail = email.split('');
-    //     let isEmail: boolean = false;
-    //     checkEmail.map((value: string) => {
-    //         if (value === '@') {
-    //             isEmail = true;
-    //         }
-    //     })
-
-    //     if (isEmail === false) {
-    //         setError('email must be actual email');
-    //     } else if (count < 8) {
-    //         setError('password must be at least 8 characters');
-    //     } else if (password !== confirmPassword) {
-    //         setError('password and confirm password do not match')
-    //     } else if (!error) {
-    //         console.log('user', user);
-    //         // dispatch user info to BE
-    //         nav('/Welcome');
-    //     }
-    // };
-
+    } = useCreateUser();
+    
     return (
         <Box
             sx={{
