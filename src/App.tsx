@@ -14,14 +14,14 @@ function App() {
   // const api = useApi();
   return (
     <Routes>
-      <Route path="/login" element={ <LoginScreen key="login" /> } />
-      <Route path="/createUser" element={ <CreateUserScreen /> } />
+      <Route path="/Login" element={ <LoginScreen key="login" /> } />
+      <Route path="/CreateUser" element={ <CreateUserScreen /> } />
         {/* {!api.isLoggedIn && <Route path="*" element={<Navigate to={"/login"} />}/>} */}
       {/* these routes will need to be protected */}
-      <Route path="/welcome" element={ <WelcomeScreen /> } />
-      <Route path="/profile" element={ <ProfileScreen /> } />
-      <Route path="/overView" element={ <OverViewScreen /> } />
-      <Route path="/settings" element={ <SettingsScreen /> } />
+      <Route path="/Welcome" element={ <WelcomeScreen /> } />
+      <Route path="/Profile" element={ <ProfileScreen /> } />
+      <Route path="/OverView" element={ <OverViewScreen /> } />
+      <Route path="/Settings" element={ <SettingsScreen /> } />
       <Route path="/" element={ <CategoriesScreen /> } />
       <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
