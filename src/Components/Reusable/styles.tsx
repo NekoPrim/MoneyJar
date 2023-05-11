@@ -28,6 +28,18 @@ const styles = {
     formField: {
         marginTop: 4,
     },
+    welcome: {
+        display: 'flex',
+        justifyContent: 'center',
+        fontSize: 24,
+    },
+    welcomeMessage: {
+        display: 'flex',
+        alignText: 'center',
+        marginLeft: 4,
+        marginRight: 4,
+        marginTop: 4,
+    },
 };
 
 export default styles;
