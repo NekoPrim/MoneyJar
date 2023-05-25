@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { mockUsers } from '../../Reusable/mockData';
 
 export default function useCreateUser() {
     const nav = useNavigate();
@@ -19,19 +20,21 @@ export default function useCreateUser() {
     }
 
     const createAccount = () => {
+        const mock = mockUsers;
+        let id = mock.length;
         setError('');
-        const user = {
-            firstName,
-            lastName,
-            email,
-            password,
-        };
 
         const checkEmail = email.split('');
         let isEmail: boolean = false;
         checkEmail.map((value: string) => {
             if (value === '@') {
                 isEmail = true;
+            }
+        });
+
+        mock.map((value: any) => {
+            if (value.email === email) {
+                setError('Account already exists');
             }
         })
 
@@ -40,10 +43,17 @@ export default function useCreateUser() {
         } else if (count < 8) {
             setError('password must be at least 8 characters');
         } else if (password !== confirmPassword) {
-            setError('password and confirm password do not match')
+            setError('password and confirm password do not match');
         } else if (!error) {
-            console.log('user', user);
             // dispatch user info to BE
+            mock.push({
+                id,
+                first_name: firstName,
+                last_name: lastName,
+                email,
+                password,
+                url_image: 'https://img.freepik.com/free-vector/illustration-business-people_53876-6299.jpg?w=360'
+            });
             nav('/Welcome');
         }
     };
