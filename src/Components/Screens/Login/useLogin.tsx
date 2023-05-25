@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { mockUsers } from '../../Reusable/mockData';
 
 export default function useLogin() {
     const nav = useNavigate();
@@ -12,23 +13,31 @@ export default function useLogin() {
     const [count, setCount] = useState(0);
     const [error, setError] = useState('');
 
-    console.log('email', email);
-    console.log('password', password);
+    // console.log('email', email);
+    // console.log('password', password);
 
     const verifyPassword = (e: any) => {
         setPassword(e.target.value);
         setCount(e.target.value.length);
-    }
+    };
 
     const login = () => {
+        const mock = mockUsers;
         const user = {
             email,
             password
         }
         if (count >= 8) {
-            console.log('user', user);
-            // dispatch user info to BE with api
-            nav('/');
+            // console.log('user', user);
+            // verifyEmail(user);
+            mock.map((value: any) => {
+                // console.log('value', value.email);
+                if (value.email === user.email && value.password === user.password) {
+                    nav('/');
+                } else {
+                    setError('Account not found. Make sure correct spelling');
+                }
+            });
         } else { setError('password must be at least 8 characters'); }
         // may want to have verification in BE
         // make sure user info matches stored info
