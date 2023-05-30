@@ -1,3 +1,12 @@
+export interface mockMe {
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    password: string;
+    url_image: string;
+}
+
 export interface MockUsers {
     id: number;
     first_name: string;

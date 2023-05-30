@@ -33,7 +33,8 @@ export default function useLogin() {
             mock.map((value: any) => {
                 // console.log('value', value.email);
                 if (value.email === user.email && value.password === user.password) {
-                    nav('/');
+                    const userId = value.id;
+                    nav('/', userId);
                 } else {
                     setError('Account not found. Make sure correct spelling');
                 }
