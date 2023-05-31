@@ -15,8 +15,6 @@ export default function useLogin() {
     const [count, setCount] = useState(0);
     const [error, setError] = useState('');
 
-    // console.log('email', email);
-    // console.log('password', password);
 
     const verifyPassword = (e: any) => {
         setPassword(e.target.value);
@@ -26,10 +24,8 @@ export default function useLogin() {
     const login = () => {
         const mock = mockUsers;
         if (count >= 8) {
-            // console.log('user', user);
             // verifyEmail(user);
             mock.map((value: any) => {
-                // console.log('value', value.email);
                 if (value.email === email && value.password === password) {
                     const id = value.id;
                     const first_name = value.first_name;
