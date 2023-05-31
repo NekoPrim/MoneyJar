@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './App.css';
 
 import CreateUserScreen from './components/Screens/CreateUsers/CreateUserScreen';
@@ -25,7 +26,7 @@ function App() {
       <Route path="/Profile" element={ <ProfileScreen /> } />
       <Route path="/OverView" element={ <OverViewScreen /> } />
       <Route path="/Settings" element={ <SettingsScreen /> } />
-      <Route path="/" element={ <CategoriesScreen userId /> } />
+      <Route path="/" element={ <CategoriesScreen /> } />
       <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
   );
