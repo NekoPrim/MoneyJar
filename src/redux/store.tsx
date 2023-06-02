@@ -1,7 +1,7 @@
 import { applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import rootReducer from './reducers/_root.reducer'; // imports ./redux/reducers/index.js
 import rootSaga from './sagas/_root.saga'; // imports ./redux/sagas/index.js
 
@@ -11,16 +11,17 @@ const sagaMiddleware = createSagaMiddleware();
 // we don't want a whole ton of console logs in our production code
 // logger will only be added to your project if your in development mode
 const middlewareList = process.env.NODE_ENV === 'development' ?
-  [sagaMiddleware, logger] :
+  [sagaMiddleware] :
   [sagaMiddleware];
 
-const store = configureStore(
+// TODO: fix createStore - depricated code, use configureStore
+const store = configureStore({
   // tells the saga middleware to use the rootReducer
   // rootSaga contains all of our other reducers
-  rootReducer,
+  reducer: rootReducer,
   // adds all middleware to our project including saga and logger
-  applyMiddleware(...middlewareList),
-);
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewareList),
+});
 
 // tells the saga middleware to use the rootSaga
 // rootSaga contains all of our other sagas
