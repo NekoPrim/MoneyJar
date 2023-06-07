@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../Reusable/Header';
 
 export default function CategoriesScreen() {
+// console.log('userId', userId);
     return (
         <>
         <Header />
