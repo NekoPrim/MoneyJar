@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { mockUsers } from '../../Reusable/mockData';
 
 export default function useLogin() {
     const nav = useNavigate();
+    const dispatch = useDispatch();
     // may want verification in BE and then call user info after logining in...
     // need useSelector GET users
     // const users = useSelector(getUsers());
@@ -13,8 +15,6 @@ export default function useLogin() {
     const [count, setCount] = useState(0);
     const [error, setError] = useState('');
 
-    // console.log('email', email);
-    // console.log('password', password);
 
     const verifyPassword = (e: any) => {
         setPassword(e.target.value);
@@ -23,16 +23,25 @@ export default function useLogin() {
 
     const login = () => {
         const mock = mockUsers;
-        const user = {
-            email,
-            password
-        }
         if (count >= 8) {
-            // console.log('user', user);
             // verifyEmail(user);
             mock.map((value: any) => {
-                // console.log('value', value.email);
-                if (value.email === user.email && value.password === user.password) {
+                if (value.email === email && value.password === password) {
+                    const id = value.id;
+                    const first_name = value.first_name;
+                    const last_name = value.last_name;
+                    const url_image = value.url_image;
+                    const user = {
+                        id,
+                        first_name,
+                        last_name,
+                        password,
+                        url_image,
+                    };
+                    dispatch({
+                        type: 'SET_USER',
+                        payload: user
+                    });
                     nav('/');
                 } else {
                     setError('Account not found. Make sure correct spelling');
